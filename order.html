@@ -38,7 +38,6 @@
      </header>
 
      <main>
-
         
         <!-- Модальное окно -->
         <div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="success_modal" aria-hidden="true">
@@ -76,52 +75,51 @@
                 <div class="block_and_tips" style="z-index: 3; display: flex; flex-direction: column; align-items: flex-end; max-width: 900px;"> 
                     <div class="form">
                         <div class="fields">
-                            <form>
+                            <form id="contact-form">
                                 <div class="row my-5">
-                                    <input type="text" class="form-control style_input" placeholder="Фамилия Имя" style="max-width: 685px; margin-left: 11px;">
+                                    <input type="text" name="user_name" class="form-control style_input" placeholder="Фамилия Имя" style="max-width: 685px; margin-left: 11px;" required>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 my-2">
-                                        <select class="form-select style_choose">
-                                        <option selected>Стиль</option>
-                                        <option value="1">Комиксный</option>
-                                        <option value="2">Полуреализм</option>
+                                        <select class="form-select style_choose" name="art_style" required>
+                                            <option value="" selected disabled>Стиль</option>
+                                            <option value="Комиксный">Комиксный</option>
+                                            <option value="Полуреализм">Полуреализм</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 my-2">
-                                        <select class="form-select style_choose">
-                                            <option selected>Тип</option>
-                                            <option value="1">Портрет</option>
-                                            <option value="2">По пояс</option>
-                                            <option value="3">В полный рост</option>
+                                        <select class="form-select style_choose" name="art_type" required>
+                                            <option value="" selected disabled>Тип</option>
+                                            <option value="Портрет">Портрет</option>
+                                            <option value="По пояс">По пояс</option>
+                                            <option value="В полный рост">В полный рост</option>
                                         </select>
-
                                     </div>
                                 </div>
 
                                 <div class="row my-5">
-                                    <input class="style_input form-control" type="text" placeholder="Ваша идея" style="height: 177px;">
+                                    <textarea name="user_idea" class="style_input form-control" placeholder="Ваша идея" style="height: 177px; resize: vertical;" required></textarea>
                                     <p class="help-block" id="tips">опишите сюжет, количество людей,
                                         примерный фон, цветовую палитру </p>
                                 </div>
                     
                                 
                                 <div class="row my-5">
-                                    <input class="style_input form-control" type="text" placeholder="Почта">
+                                    <input type="email" name="user_email" class="style_input form-control" placeholder="Почта" required>
                                 </div>
 
                                 <div class="row my-2">
                                     <label for="btnradio1" class="form-label" id="label">Способ оплаты</label>
                                 </div>
                                     <div class="btn-group" role="group">
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
+                                        <input type="radio" class="btn-check" name="payment_method" id="btnradio1" value="Банковская карта" checked>
                                         <label class="btn btn-outline-primary btn-payment" for="btnradio1">
                                             <img src="images/card.png" alt="Карта">
                                             Банковская карта
                                         </label>
                                     
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
+                                        <input type="radio" class="btn-check" name="payment_method" id="btnradio2" value="Boosty">
                                         <label class="btn btn-outline-primary btn-payment" for="btnradio2">
                                             <img src="images/boosty.png" alt="Boosty">
                                             Boosty
@@ -130,7 +128,7 @@
 
                             
                                 <div class="success">
-                                    <button type="button" id="btn_success" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#success_modal">
+                                    <button type="submit" id="btn_success" class="btn btn-primary">
                                         Оформить
                                     </button>
                                 </div>
@@ -139,7 +137,6 @@
                         </div>
                 
                         </div>
-
 
                         <div class="row" id="text-tips">
                             <div class="col-md-6 my-4">
@@ -152,7 +149,7 @@
                     </div>
             </div>
 
-            </div>
+        </div>
 
     </main>
 
@@ -174,6 +171,53 @@
             </nav>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <script>
+        // Инициализация EmailJS
+        (function() {
+            emailjs.init("DlDQlEdM0EKIy8z8d"); // Замените на ваш Public Key
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('btn_success');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Отправка...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                user_name: this.user_name.value,
+                art_style: this.art_style.value,
+                art_type: this.art_type.value,
+                user_idea: this.user_idea.value,
+                user_email: this.user_email.value,
+                payment_method: this.payment_method.value,
+                date: new Date().toLocaleDateString('ru-RU')
+            };
+
+            emailjs.send('service_46tp9h8', 'template_a744n51', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    const successModal = new bootstrap.Modal(document.getElementById('success_modal'));
+                    successModal.show();
+                    
+                    document.getElementById('contact-form').reset();
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
 </body>
 </html>
