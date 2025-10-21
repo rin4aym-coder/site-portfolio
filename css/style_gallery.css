@@ -1,0 +1,443 @@
+
+
+@font-face {
+    font-family: "ProstoOne";
+    src:url(../fonts/Prosto_One/ProstoOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src:url(../fonts/Montserrat/Montserrat-Regular.ttf)
+}
+
+@font-face{
+    font-family: "Montserrat-medium";
+    src:url(../fonts/Montserrat/Montserrat-Medium.ttf)
+}
+
+:root{
+    --accent-color: #51E2E7;
+    --accentHover-color: #5179E7;
+    --white: #FFFFFF;
+    --footer: #444444;
+    --dark-color: #2A2A2A;
+}
+.container{
+    max-width: 1360px;
+    padding: 0 70px;
+    margin: 0 auto;
+}
+.container_content{
+    max-width: 1360px;
+    padding: 250px 70px;
+    margin: 0 auto;
+}
+
+.text-p{
+    font-family: "Montserrat";
+    font-size: calc(8px + (24 - 8) * ((100vw - 300px) / (1920 - 300)));
+    line-height: calc(calc(8px + (24 - 8) * ((100vw - 300px) / (1920 - 300))) * 1.21);
+    color: white;
+}
+
+.text-h1{
+    font-family: "Montserrat";
+    color: #FFFFFF;
+}
+
+h2{
+    font-family: "Montserrat";
+    font-size: calc(8px + (24 - 8) * ((100vw - 300px) / (1920 - 300)));
+    line-height: calc(calc(8px + (24 - 8) * ((100vw - 300px) / (1920 - 300))) * 1.21);
+    color: #FFFFFF;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+
+}
+
+a {
+    color: var(--white); 
+    text-decoration: none;
+}
+a:hover{
+    color: var(--accent-color);
+}
+a:active{
+    color: var(--accentHover-color);
+}
+
+
+body{
+    background-color: var(--dark-color);
+}
+
+/*_______________________________________Шапка__________________________________________________________*/
+
+/*_________________Навигация_____________________*/
+
+.nav{
+    
+    font-family: "Montserrat-Medium";
+    font-size: 24px;
+    margin-top: 44px;
+    color: var(--white);
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    column-gap: 40px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.nav_list{
+    margin-bottom: 3px;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    column-gap: 48px;
+}
+
+hr{
+    border: none;
+    border-top: 1px solid var(--white);
+    margin: 0 auto;
+}
+
+.glav_zag{
+    margin: 0 auto;
+    font-family: "Montserrat-Medium";
+    font-size: 128px;
+    max-width: 532px;
+    color: #FFFFFF;
+    margin-top: 178px;
+    margin-bottom: 215px;
+}
+/*___________________________Навигация Конец___________________________*/
+
+
+.filter{
+    margin: 0 auto;
+    padding-bottom: 20px;
+    font-family: "Montserrat-Medium";
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+
+.filter a{
+    color: #909090; 
+    text-decoration: none;
+}
+.filter a:hover{
+    color: var(--accent-color);
+}
+.filter a:active{
+    color: var(--accentHover-color);
+}
+
+
+/*_______________________________________Шапка Конец__________________________________________________________*/
+.custom-caption{
+    font-family: "Montserrat-Medium";
+    font-size: 24px;
+}
+
+/*_______________________________________Начало ИЛЛЮСТРАЦИИ__________________________________________________________*/
+.title_ill{
+
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+}
+
+.title_ill .text-h1{
+    font-size: calc(10px + (36 - 10) * ((100vw - 300px) / (1920 - 300)));
+}
+
+.title_ill hr{
+    width: 100%;
+    max-width: 300px;
+    min-width: 50px;
+}
+
+
+.grid_illustr{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas: 
+    "HandmTale1 hr HandmTale2"
+    "Witcher AOT AOT"
+    "textJ Jinx Jinx"
+    "Kass DA DA"
+    "Valhalla Valhalla Text_Valh"
+    "RoEvah Evah Aria"
+    ;
+
+    margin-bottom: 210px;
+}
+
+.grid_illustr img{
+    width: 100%;
+    transition: all 0.3s;  
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.3s; 
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.rs1{
+    grid-area: HandmTale1;
+    position: relative;
+    transition: all 0.3s; 
+}
+.rs1:hover {
+    transform: scale(1.015);
+}
+
+.rs2{
+    grid-area: HandmTale2;
+    position: relative;
+    transition: all 0.3s; 
+}
+.rs2:hover {
+    transform: scale(1.015);
+}
+
+.title_ill{
+    grid-area: hr;
+}
+
+
+.vedm{
+    grid-area: Witcher;
+    position: relative;
+    transition: all 0.3s; 
+}
+.vedm:hover {
+    transform: scale(1.015);
+}
+
+.aot{
+    grid-area: AOT;
+    position: relative;
+    transition: all 0.3s; 
+}
+.aot:hover {
+    transform: scale(1.015);
+}
+
+
+.jinx{
+    grid-area: Jinx;
+    position: relative;
+    transition: all 0.3s; 
+}
+.jinx:hover {
+    transform: scale(1.015);
+}
+
+.jinx_text{
+    grid-area: textJ;
+    align-content: center;
+}
+
+
+.kas{
+    grid-area: Kass;
+    position: relative;
+    transition: all 0.3s; 
+}
+.kas:hover {
+    transform: scale(1.015);
+}
+
+.da{
+    grid-area: DA;
+    position: relative;
+    transition: all 0.3s; 
+}
+.da:hover {
+    transform: scale(1.015);
+}
+
+
+.valh{
+    grid-area: Valhalla;
+    position: relative;
+    transition: all 0.3s; 
+}
+.valh:hover {
+    transform: scale(1.015);
+}
+
+.valh_text{
+    grid-area: Text_Valh;
+    align-content: center;
+}
+
+.roeva{
+    grid-area: RoEvah;
+    position: relative;
+    transition: all 0.3s; 
+}
+.roeva:hover {
+    transform: scale(1.015);
+}
+
+.evah{
+    grid-area: Evah;
+    position: relative;
+    transition: all 0.3s; 
+}
+.evah:hover {
+    transform: scale(1.015);
+}
+
+.aria{
+    grid-area: Aria;
+    position: relative;
+    transition: all 0.3s; 
+}
+.aria:hover {
+    transform: scale(1.015);
+}
+
+
+/*_______________________________________Иллюстрации КОНЕЦ__________________________________________________________*/
+
+
+/*_______________________________________Концепты НАЧАЛО__________________________________________________________*/
+.title_concept{
+
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 98px;
+}
+
+.title_concept hr{
+    min-width: 300px;
+}
+
+.grid_concept{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "Robin Evah_C"
+    "Lennart Lennart"
+    ;
+}
+
+.grid_concept img{
+    width: 100%;
+}
+
+.robin{
+    grid-area: Robin;
+    position: relative;
+    transition: all 0.3s; 
+}
+.robin:hover {
+    transform: scale(1.015);
+}
+
+.evah_c{
+    grid-area: Evah_C;
+    position: relative;
+    transition: all 0.3s; 
+}
+.evah_c:hover {
+    transform: scale(1.015);
+}
+
+.lennart{
+    grid-area: Lennart;
+    position: relative;
+    transition: all 0.3s; 
+}
+.lennart:hover {
+    transform: scale(1.015);
+}
+/*_______________________________________Концепты КОНЕЦ__________________________________________________________*/
+
+.order_tips{
+    font-family: "Montserrat";
+    font-size: 36px;
+    margin-top: 148px;
+    margin-bottom: 148px;
+}
+
+.order_tips a{
+    color: var(--white); 
+    text-decoration: none;
+}
+.order_tips a:hover{
+    color: var(--accent-color);
+}
+.order_tips  a:active{
+    color: var(--accentHover-color);
+}
+
+/*_______________________________________Футер__________________________________________________________*/
+
+.footer{
+    background-color: var(--footer);
+    height: 320px;
+}
+
+.content_footer{
+    font-family: "Montserrat";
+    padding-top: 85px;
+    font-size: 24px;
+    color: var(--white);
+}
+
+.f_left{
+    display: inline-flex;
+    justify-content:space-between;
+    column-gap: 20px;
+    align-items:center;
+}
+
+
+.f_bottom_nav{
+    font-family: "Montserrat-Medium";
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    column-gap: 45px;
+    padding-top: 45px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+
+}
+/*_______________________________________Футер КОНЕЦ__________________________________________________________*/
+
