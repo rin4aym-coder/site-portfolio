@@ -352,3 +352,25 @@ footer a{
 }
 /*_______________________________________Футер КОНЕЦ__________________________________________________________*/
 
+/* Стили для состояния загрузки */
+#btn_success:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Стили для textarea */
+textarea.form-control {
+    min-height: 177px;
+    resize: vertical;
+}
+
+/* Валидация форм */
+.style_input:invalid,
+.style_choose:invalid {
+    border-color: #ff6b6b;
+}
+
+.style_input:valid,
+.style_choose:valid {
+    border-color: #51e2e7;
+}
