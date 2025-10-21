@@ -233,11 +233,26 @@ hr{
     color: #FFFFFF;
     font-size: 24px;
 }
-.btn-payment{
+.btn-payment {
     font-size: 24px;
     border-radius: 0px;
-    border: 2px solid #909090;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
 
+.btn-payment:hover,
+.btn-payment:focus {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
+}
+
+.btn-check:checked + .btn-payment {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
 }
 
 .success{
@@ -374,3 +389,4 @@ textarea.form-control {
 .style_choose:valid {
     border-color: #51e2e7;
 }
+
