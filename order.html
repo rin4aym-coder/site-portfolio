@@ -38,26 +38,50 @@
      </header>
 
      <main>
-
-
+        
         <!-- Модальное окно -->
         <div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="success_modal" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content" id="content_modal">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                <p class="text-p">Спасибо за заказ!
+                    <br>
+                    <br>
+                    Оформление прошло успешно.<br>
+                    Cкоро я с вами свяжусь.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Модальное окно -->
+
+        <div class="container_content">
+            <div class="row_status">
+                <h1 class="text-h1">Статус заказов</h1>
+                <h1  class="frames">Принимаются</h1> 
+            </div>
+            <div class="row_time">
+                <h1 class="text-h1">Ожидание очереди</h1>
+                <h1 class="frames">2 недели</h1> 
+            </div>
+        </div>
+
+        <div class="container_form">
+            <img src="images/прост.gif" class="animation" alt="Анимация">
+            <div class="container" style="z-index: 3; display: flex; flex-direction: column; align-items: flex-end;">
                 <div class="block_and_tips" style="z-index: 3; display: flex; flex-direction: column; align-items: flex-end; max-width: 900px;"> 
                     <div class="form">
                         <div class="fields">
-                            <form>
                             <form id="contact-form">
                                 <div class="row my-5">
-                                    <input type="text" class="form-control style_input" placeholder="Фамилия Имя" style="max-width: 685px; margin-left: 11px;">
                                     <input type="text" name="user_name" class="form-control style_input" placeholder="Фамилия Имя" style="max-width: 685px; margin-left: 11px;" required>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 my-2">
-                                        <select class="form-select style_choose">
-                                        <option selected>Стиль</option>
-                                        <option value="1">Комиксный</option>
-                                        <option value="2">Полуреализм</option>
                                         <select class="form-select style_choose" name="art_style" required>
                                             <option value="" selected disabled>Стиль</option>
                                             <option value="Комиксный">Комиксный</option>
@@ -65,31 +89,23 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 my-2">
-                                        <select class="form-select style_choose">
-                                            <option selected>Тип</option>
-                                            <option value="1">Портрет</option>
-                                            <option value="2">По пояс</option>
-                                            <option value="3">В полный рост</option>
                                         <select class="form-select style_choose" name="art_type" required>
                                             <option value="" selected disabled>Тип</option>
                                             <option value="Портрет">Портрет</option>
                                             <option value="По пояс">По пояс</option>
                                             <option value="В полный рост">В полный рост</option>
                                         </select>
-
                                     </div>
                                 </div>
 
                                 <div class="row my-5">
-                                    <input class="style_input form-control" type="text" placeholder="Ваша идея" style="height: 177px;">
                                     <textarea name="user_idea" class="style_input form-control" placeholder="Ваша идея" style="height: 177px; resize: vertical;" required></textarea>
                                     <p class="help-block" id="tips">опишите сюжет, количество людей,
                                         примерный фон, цветовую палитру </p>
                                 </div>
-
-
+                    
+                                
                                 <div class="row my-5">
-                                    <input class="style_input form-control" type="text" placeholder="Почта">
                                     <input type="email" name="user_email" class="style_input form-control" placeholder="Почта" required>
                                 </div>
 
@@ -97,39 +113,61 @@
                                     <label for="btnradio1" class="form-label" id="label">Способ оплаты</label>
                                 </div>
                                     <div class="btn-group" role="group">
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
                                         <input type="radio" class="btn-check" name="payment_method" id="btnradio1" value="Банковская карта" checked>
                                         <label class="btn btn-outline-primary btn-payment" for="btnradio1">
                                             <img src="images/card.png" alt="Карта">
                                             Банковская карта
                                         </label>
-
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
+                                    
                                         <input type="radio" class="btn-check" name="payment_method" id="btnradio2" value="Boosty">
                                         <label class="btn btn-outline-primary btn-payment" for="btnradio2">
                                             <img src="images/boosty.png" alt="Boosty">
                                             Boosty
+                                        </label>
+                                    </div>
+
+                            
                                 <div class="success">
-                                    <button type="button" id="btn_success" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#success_modal">
                                     <button type="submit" id="btn_success" class="btn btn-primary">
                                         Оформить
                                     </button>
                                 </div>
-
+                            </form>
+                            
                         </div>
-
+                
+                        </div>
 
                         <div class="row" id="text-tips">
                             <div class="col-md-6 my-4">
                                 <p class="text-p">Я свяжусь с&nbsp;вами, как&nbsp;только очередь дойдет до&nbsp;вашего заказа.</p>
+                            </div>
+                            <div class="col-md-6 my-4">
+                                <p class="text-p">После оформления заказа вам&nbsp;на&nbsp;почту придёт подтверждающее письмо.</p>
+                            </div>
+                        </div>
                     </div>
             </div>
 
-            </div>
         </div>
 
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            <nav class="content_footer">
+                <div class="f_left">
+                    <a href="index.html"><img src="images/lofo_footer.png" alt="Логотип"></a>
+                    <p>Рината Аймалетдинова<br>
+                        rinaymaletdin@mail.ru</p>
+                </div>
+                <div class="f_bottom_nav">
+                    <a href="index.html" class="nav_item">Главная</a>
+                    <a href="gallery.html" class="nav_item">Галерея</a>
+                    <a href="#" class="nav_item">О заказах</a>
+                    <a href="#" class="nav_item">Информация</a>
+                    <a href="order.html" class="nav_item">Заказать рисунок</a>
+                </div>
             </nav>
         </div>
     </footer>
@@ -183,5 +221,3 @@
     </script>
 </body>
 </html>
-</html>
-
